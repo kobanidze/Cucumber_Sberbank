@@ -26,7 +26,7 @@ public class TestPropManager {
     private void loadApplicationProperties() {
         String nameFile = System.getProperty("propFile", "application");
         try {
-            properties.load(new FileInputStream("src/main/resources" + nameFile + ".properties"));
+            properties.load(new FileInputStream("src/main/resources/" + nameFile + ".properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }

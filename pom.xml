@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>AFT-4</artifactId>
+    <artifactId>Cucumber_Sberbank</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -24,9 +24,9 @@
         <!-- Dependencies Version -->
         <selenium-java.version>4.5.3</selenium-java.version>
         <junit.version>4.13.2</junit.version>
-        <cucumber-java.version>5.7.0</cucumber-java.version>
+        <cucumber-java.version>7.8.1</cucumber-java.version>
         <cucumber-junit.version>7.8.1</cucumber-junit.version>
-        <allure-cucumber5-jvm.version>2.19.0</allure-cucumber5-jvm.version>
+        <allure-cucumber7-jvm.version>2.19.0</allure-cucumber7-jvm.version>
         <aspectj.version>1.9.7</aspectj.version>
     </properties>
 
@@ -54,6 +54,22 @@
             <version>${cucumber-java.version}</version>
         </dependency>
 
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/io.cucumber/cucumber-core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-core</artifactId>-->
+<!--            <version>7.8.1</version>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>gherkin</artifactId>
+            <version>24.0.0</version>
+        </dependency>
+
+
+
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -61,12 +77,12 @@
             <version>5.9.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.1</version>
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter-api</artifactId>-->
+<!--            <version>5.9.0</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
         <dependency>
@@ -88,8 +104,8 @@
         <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber5-jvm -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber5-jvm</artifactId>
-            <version>${allure-cucumber5-jvm.version}</version>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>${allure-cucumber7-jvm.version}</version>
         </dependency>
 
     </dependencies>
@@ -121,7 +137,6 @@
                         -Xmx1024m
                         -Dfile.encoding=${encoding.type}
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
                     </argLine>
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/reports/allure-results</allure.results.directory>

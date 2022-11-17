@@ -17,6 +17,11 @@ public class MortgagePageStep {
         pageManager.getMortgagePage().openFieldsOfMortgages();
     }
 
+    @И("^Ожидание загрузки фрейма калькулятора и переключение на него$")
+    public void waitUntilFrameIsVisible() {
+        pageManager.getMortgagePage().waitUntilFrameIsVisible();
+    }
+
     @И("^Выбор цели ипотеки с название (.+)$")
     public void chooseMortgage(String nameOfMortgage){
         pageManager.getMortgagePage().chooseMortgage(nameOfMortgage);
@@ -28,12 +33,12 @@ public class MortgagePageStep {
     }
 
     @И("^Заполнение поля стоимости 'Стоимость недвижимости' данными (\\d*)$")
-    public void fulfillCostOfHouseInputField(String costOfHouse) {
+    public void fulfillCostOfHouseInputField(String costOfHouse) throws InterruptedException {
         pageManager.getMortgagePage().fulfillCostOfHouseInputField(costOfHouse);
     }
 
     @И("^Заполнения поля 'Первоначальный взнос'  данными (\\d*)$")
-    public void fuldillInitialPaymentInputField(String payment) {
+    public void fuldillInitialPaymentInputField(String payment) throws InterruptedException {
         pageManager.getMortgagePage().fuldillInitialPaymentInputField(payment);
     }
 

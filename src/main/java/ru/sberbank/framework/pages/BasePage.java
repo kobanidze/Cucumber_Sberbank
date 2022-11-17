@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.sberbank.framework.managers.DriverManager;
@@ -18,6 +19,9 @@ public class BasePage {
     protected WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(10), Duration.ofMillis(1000));
     protected PageManager pageManager = PageManager.getInstance();
 
+    public BasePage() {
+        PageFactory.initElements(driverManager.getDriver(), this);
+    }
 
     public void chooseButtonFromTopBlock(List<WebElement> buttons, List<WebElement> frames, String nameOfCategory){
         for (WebElement tagOfTopBlock : buttons) {
